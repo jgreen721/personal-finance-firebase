@@ -29,21 +29,22 @@ const RecurringSummary = ({recurring}) => {
     setPaidTransactions(tempPaidTransactions);
     setDueSoonTransactions(tempDueSoonTransactions);
     setUpcomingTransactions(tempUpcomingTransactions);
+    console.log(tempPaidTransactions);
   },[recurring])
   return (
     <div className="recurring-content-card bg-white">
       <h3 className="pb-2">Summary</h3>
         <li className={`flex justify-between py-1 item-border-bottom`}>
           <h4 className="mid-thin">Paid Bills</h4>
-          <h4>{paidTransactions.length}(${Math.abs(paidTransactions.reduce((a,b)=>a+b?.amount,0))})</h4>
+          <h4>{paidTransactions.length} (${paidTransactions.length ? Math.abs(paidTransactions.reduce((a,b)=>a+parseFloat(b?.amount),0)) : 0.00})</h4>
         </li>
           <li className={`flex justify-between py-1 item-border-bottom`}>
           <h4 className="mid-thin">Total Upcoming</h4>
-          <h4>{upcomingTransactions.length}(${Math.abs(upcomingTransactions.reduce((a,b)=>a+b?.amount,0))})</h4>
+          <h4>{upcomingTransactions.length} (${Math.abs(upcomingTransactions.reduce((a,b)=>a+parseFloat(b?.amount),0))})</h4>
         </li>
           <li className={`flex justify-between py-1 item-border-bottom`}>
           <h4 className="mid-thin">Due Soon</h4>
-          <h4>{dueSoonTransactions.length}(${Math.abs(dueSoonTransactions.reduce((a,b)=>a+b?.amount,0))})</h4>
+          <h4>{dueSoonTransactions.length} (${Math.abs(dueSoonTransactions.reduce((a,b)=>a+parseFloat(b?.amount),0))})</h4>
         </li>
       
     </div>

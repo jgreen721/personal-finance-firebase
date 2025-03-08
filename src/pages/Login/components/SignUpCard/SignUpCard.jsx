@@ -1,8 +1,6 @@
 import React, {useRef, useState} from 'react'
-// import {FaUpload, FaUser} from "react-icons/fa"
-import { FileUpload,FormErrorCaption,FormDiv } from '../../../../components'
+import { FileUpload,FormDiv } from '../../../../components'
 import {useAuthContext} from "../../../../context/AuthContext"
-import {iconShowPassword,iconHidePassword} from "../../../../const"
 import "./SignUpCard.css"
 
 const SignUpCard = ({setShowSignIn}) => {
@@ -55,7 +53,7 @@ const SignUpCard = ({setShowSignIn}) => {
         clearErrors();
         return;
     }
-    // signup(userData);
+    signup(userData);
 
     console.log(userData);
 

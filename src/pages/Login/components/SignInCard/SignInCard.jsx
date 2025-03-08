@@ -1,14 +1,11 @@
 import React, {useRef, useState} from 'react'
-import { FormErrorCaption,FormDiv } from '../../../../components'
-import {iconShowPassword,iconHidePassword} from "../../../../const"
+import { FormDiv } from '../../../../components'
 import {useAuthContext} from "../../../../context/AuthContext"
 import "./SignInCard.css"
 
 const SignInCard = ({setShowSignIn}) => {
   const [emailError,setEmailError] = useState(false);
   const [passwordError,setPasswordError] = useState(false);
-  const [showPassword,setShowPassword] = useState(false);
-  const [formError,setFormError] = useState(false)
   const signInRef = useRef();
   const {signin,alert} = useAuthContext()
 
