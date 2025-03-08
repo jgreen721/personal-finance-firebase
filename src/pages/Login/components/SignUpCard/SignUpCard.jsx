@@ -102,10 +102,10 @@ const SignUpCard = ({setShowSignIn}) => {
 
   <div className="flex-center form-caption ">
     <h5>Already have an account?
-    <button onClick={()=>setShowSignIn((showSignIn)=>showSignIn=!showSignIn)} className="link-btn mx-1">Login</button>
+    <a onClick={()=>setShowSignIn((showSignIn)=>showSignIn=!showSignIn)} className="link-btn mx-1">Login</a>
      or
-    <button onClick={signinwithdemodata} className="link-btn mx-1">Demo</button>
-    </h5>
+    <a onClick={signinwithdemodata} className="link-btn mx-1">Demo</a>
+   </h5>
   </div>
   </div>
 

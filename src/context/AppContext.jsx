@@ -87,7 +87,7 @@ export const AppProvider = ({ children }) => {
         console.log("handle get generic image!--");
         transactionImgUrl = getStaticImgPath(transactionData.category)
       }else{
-      let imgRef = ref(storage,`avatars/${transactionData.avatarFile.name}`);
+      let imgRef = ref(storage,`transactions/${transactionData.avatarFile.name}`);
       await uploadBytes(imgRef,transactionData.avatarFile)
       let downloadUrl = await getDownloadURL(imgRef);
       transactionImgUrl = downloadUrl

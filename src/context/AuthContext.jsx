@@ -17,6 +17,10 @@ export const AuthProvider = ({ children }) => {
   const [alert,setAlert] = useState(null);
   const navigate = useNavigate()
 
+
+
+
+
   useEffect(() => {
     if(useDemoData)return;
     onAuthStateChanged(auth,async(user)=>{
@@ -28,7 +32,6 @@ export const AuthProvider = ({ children }) => {
             querySnapshot.forEach((doc) => {
               setUser({id:doc.id,...doc.data()})
             });
-            navigate("/")
         }
     })
   }, []);
@@ -71,6 +74,8 @@ export const AuthProvider = ({ children }) => {
         // console.log(userData);
         let firestoreUser = await addDoc(collection(db,"users"),userData);
         console.log("firestoreUser",firestoreUser);
+        setUser(userData);
+        navigate("/")
       // }
     }
     catch(e){

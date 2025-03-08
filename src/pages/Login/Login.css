@@ -93,9 +93,9 @@
   filter: blur(100px);
 }
 
-.card-caption {
+/* .card-caption {
   width: 100%;
-}
+} */
 
 @media screen and (max-width: 1050px) {
   .login-column:nth-child(1) {
