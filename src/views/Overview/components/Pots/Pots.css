@@ -1,0 +1,11 @@
+.pot-card-column {
+  border-radius: 0.5rem;
+  padding: 1.6rem;
+}
+
+.pot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* gap: 1.5rem; */
+  /* border: 1px solid green; */
+}

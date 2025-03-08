@@ -1,0 +1,10 @@
+.edit-dropdown {
+  position: absolute;
+  background: white;
+  border-radius: 1rem;
+  transition: 0.25s ease;
+  transform-origin: top;
+  z-index: 10;
+  right: 0rem;
+  /* border: 2px solid red; */
+}

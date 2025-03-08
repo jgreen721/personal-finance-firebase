@@ -1,0 +1,183 @@
+.app {
+  /* max-width: 144rem; */
+  margin: 0 auto;
+  min-height: 100vh;
+  /* height: 100vh; */
+  position: relative;
+  border: 3px solid black;
+  font-family: var(--mainFont);
+  background: var(--beige100);
+  --darkBg: var(--grey900);
+}
+
+/* .app {
+  --darkBg: var(--grey900);
+} */
+
+.mobile {
+  display: none;
+}
+
+.modal {
+  padding: 3.2rem;
+  width: clamp(45%, 500px, 90%);
+  border-radius: 0.5rem;
+  box-shadow: 2px 3px 7px rgba(10, 15, 15, 0.35),
+    2px 3px 20px rgba(15, 15, 10, 0.55);
+}
+
+.parent-content-card {
+  padding: 3.2rem;
+  border-radius: 0.5rem;
+  box-shadow: 2px 3px 7px rgba(10, 15, 15, 0.35),
+    2px 3px 20px rgba(15, 15, 10, 0.55);
+}
+
+.item-border-bottom {
+  border-bottom: 1px solid var(--grey100);
+}
+
+.item-border-bottom:last-child {
+  border-bottom: none;
+}
+
+.btn {
+  padding: 1.6rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  border: none;
+  transition: 0.25s ease;
+}
+
+.btn:hover {
+  transform: scale(0.99);
+  box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.65);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-dark {
+  background: var(--darkBg);
+  color: var(--white);
+}
+
+.btn-delete {
+  background: var(--red);
+  color: var(--white);
+}
+
+.link-btn {
+  background: transparent;
+  border: none;
+  text-decoration: underline;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.transparent-btn {
+  background: transparent;
+  border: none;
+  white-space: nowrap;
+}
+
+.close-modal-btn {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.close-modal-btn:hover {
+  box-shadow: 1px 2px 4px rgba(15, 15, 10, 0.65);
+}
+
+/*FORM ELEMENTS */
+
+.form {
+  margin: 1rem 0rem;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.form-div-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form-caption {
+  margin-top: 3.2rem;
+  width: 100%;
+}
+
+/*END FORM ELEMENTS */
+
+.card-padding-radius {
+  padding: 2.4rem;
+  border-radius: 1rem;
+}
+
+.rise-element {
+  transform: translateY(0rem);
+  transition: 0.25s ease;
+}
+
+.lower-element {
+  transform: translateY(10rem);
+  transition: 0.25s ease;
+  pointer-events: none;
+}
+
+.scale-1 {
+  transform: scale(1);
+}
+
+.scale-0 {
+  transform: scale(0);
+}
+
+.full-blur {
+  transition: 2s ease;
+  filter: blur(150px);
+}
+
+.clear-blur {
+  transition: 1s ease;
+  filter: blur(0px);
+}
+
+.showdrop-down {
+  transform: scaleY(1);
+}
+
+.hide-dropdown {
+  transform: scaleY(0);
+}
+
+@media screen and (max-width: 750px) {
+  .btn {
+    padding: 1.2rem;
+  }
+
+  .parent-content-card {
+    padding: 2rem;
+  }
+
+  .desktop-tablet {
+    display: none;
+  }
+
+  .mobile {
+    display: flex;
+  }
+}

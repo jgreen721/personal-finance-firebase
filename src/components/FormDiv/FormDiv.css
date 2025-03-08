@@ -1,0 +1,43 @@
+.form-div {
+  position: relative;
+  flex: 1;
+  padding-bottom: 2rem;
+  /* border: 2px solid red; */
+}
+
+.form-control {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  outline: none;
+}
+
+.input-dollar-icon {
+  position: absolute;
+  top: 3.5rem;
+  left: 0.75rem;
+}
+
+.form-control:focus {
+  outline: 2px solid black;
+}
+
+.input-icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.input-icon {
+  position: absolute;
+  right: 1rem;
+  top: 3.75rem;
+}
+
+.form-error-div {
+  position: absolute;
+  right: 0;
+  bottom: 0.5rem;
+  overflow: hidden;
+}

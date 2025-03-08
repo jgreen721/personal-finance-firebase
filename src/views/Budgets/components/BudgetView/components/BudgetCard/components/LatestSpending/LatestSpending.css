@@ -1,0 +1,18 @@
+.latest-spending-card {
+  background: var(--beige100);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.transactions-list {
+  border-radius: 0.5rem;
+}
+
+.latest-spending-item {
+  /* border-bottom: 1px solid var(--grey300); */
+  padding: 1.2rem 0;
+}
+
+/* .latest-spending-item:last-child {
+  border-bottom: none;
+} */

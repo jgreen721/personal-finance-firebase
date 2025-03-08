@@ -1,0 +1,45 @@
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border: 2px solid black;
+  position: relative;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.progress {
+  position: absolute;
+  height: 100%;
+  width: var(--width);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: scaleFromLeft 1s 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    forwards;
+}
+
+.added-progress {
+  position: absolute;
+  transform-origin: left;
+  height: 100%;
+  transition: 0.25s ease;
+  background: var(--green);
+}
+
+.minus-progress {
+  position: absolute;
+  transform-origin: right;
+  height: 100%;
+  transition: 0.25s ease;
+  background: var(--red);
+  /* width: 145px; */
+  transform-origin: right;
+  /* transform: scaleX(0.25); */
+  /* animation: growminus 1s forwards; */
+}
+
+@keyframes growminus {
+  100% {
+    transform: scaleX(1);
+  }
+}

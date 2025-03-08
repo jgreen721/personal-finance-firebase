@@ -1,0 +1,11 @@
+.search-form-div {
+  position: relative;
+  width: 100%;
+  max-width: 32rem;
+}
+
+.search-input-icon {
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
+}

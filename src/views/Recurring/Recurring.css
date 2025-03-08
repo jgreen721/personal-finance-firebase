@@ -1,0 +1,39 @@
+.recurring-view-container {
+  /* min-height: 100vh; */
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  /* background: orange; */
+}
+.recurring-summary-column {
+  /* border: 2px solid green; */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.recurring-transactions-column {
+  flex: 2;
+  /* border: 2px solid red; */
+}
+
+.recurring-content-card {
+  padding: 2.4rem;
+  border-radius: 1rem;
+}
+
+@media screen and (max-width: 1050px) {
+  .recurring-view-container {
+    flex-direction: column;
+  }
+
+  .recurring-summary-column {
+    flex-direction: row;
+    /* border: 5px solid green; */
+  }
+
+  .recurring-content-card {
+    flex: 1;
+  }
+}

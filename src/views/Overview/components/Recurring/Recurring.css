@@ -1,0 +1,15 @@
+.recurring-overview-item {
+  padding: 1.6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.recurring-overview-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-left: 5px solid var(--borderColor);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  animation: bounceup 1s 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}

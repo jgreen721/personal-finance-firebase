@@ -1,0 +1,15 @@
+.pots-main-content {
+  height: 100%;
+}
+
+.pots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media screen and (max-width: 1050px) {
+  .pots-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

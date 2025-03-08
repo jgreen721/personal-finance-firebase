@@ -1,0 +1,20 @@
+.budget-progress-parent {
+  height: 3.2rem;
+  width: 100%;
+  /* border: 1px solid black; */
+  margin: 1.6rem 0;
+  border-radius: 0.5rem;
+  position: relative;
+  background: var(--beige100);
+  overflow: hidden;
+}
+
+.budget-card-progress {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  transition: 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: scaleFromLeft 1s 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    forwards;
+}

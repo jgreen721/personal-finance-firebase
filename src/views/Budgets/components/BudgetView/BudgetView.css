@@ -1,0 +1,24 @@
+.budget-view-container {
+  /* border: 2px solid red; */
+  display: flex;
+  gap: 1rem;
+}
+
+.budget-view-summary-column {
+  flex: 1;
+}
+
+.budget-view-budgets-column {
+  flex: 2;
+}
+
+@media screen and (max-width: 850px) {
+  .budget-view-container {
+    flex-direction: column;
+  }
+
+  .budget-view-summary-column,
+  .budget-view-budgets-column {
+    flex: auto;
+  }
+}

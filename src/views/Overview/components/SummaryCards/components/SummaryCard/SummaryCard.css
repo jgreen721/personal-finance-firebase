@@ -1,0 +1,20 @@
+.summary-card {
+  flex: 1;
+}
+
+.empty-summary-card {
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media screen and (max-width: 1050px) {
+  .empty-summary-card {
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+}

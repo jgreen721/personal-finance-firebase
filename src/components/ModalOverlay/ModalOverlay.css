@@ -1,0 +1,31 @@
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s ease;
+  z-index: 100;
+  transform-origin: left;
+  transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.modal-overlay * {
+  position: relative;
+  z-index: 5;
+}
+
+.modal-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(5px);
+}
+
+.show-modal-overlay {
+  animation: scalfromleft 1s forwards;
+}
+
+.hide-modal-overlay {
+  transform: scaleX(0);
+}

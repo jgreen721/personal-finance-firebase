@@ -1,0 +1,4 @@
+.signup-form {
+  /* margin: 3.2rem 0; */
+  transform: translateY(2.25rem);   /*better approach then expected to address formcard padding needs for both sides /*
+}

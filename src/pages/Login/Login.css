@@ -1,0 +1,110 @@
+.login-container {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  min-height: 75rem;
+  /* border: 3px solid red; */
+}
+
+.login-main-content-row {
+  display: flex;
+  padding: 2rem;
+  width: 100%;
+  max-width: 144rem;
+  margin: 0 auto;
+  /* border: 4px solid orange; */
+}
+
+.mobile-login-header {
+  background: var(--grey900);
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  transform: translateY(-15rem);
+  position: absolute;
+  transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.175);
+}
+
+.login-column:nth-child(1) {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  transition: 0.5s ease;
+  /* border: 4px solid yellow; */
+}
+
+.login-illustration-img {
+  border-radius: 1rem;
+}
+
+.login-column:nth-child(2) {
+  flex: 1;
+  /* border: 2px solid blue; */
+}
+
+.login-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.footer-link {
+  font-size: 1.4rem;
+  color: var(--grey900);
+}
+
+/*SignInSignUp Form CSS */
+
+.login-card {
+  position: relative;
+  padding: 3.2rem;
+  width: clamp(65%, 56rem, 90%);
+  transition: 0.25s ease;
+  transform-style: preserve-3d;
+  background: var(--white);
+  border-radius: 1rem;
+  box-shadow: 0px 0px 6px rgba(20, 10, 15, 0.65),
+    2px 1px 10px rgba(15, 20, 20, 0.5),
+    -2px 0px 10px rgba(20, 20, 15, 0.3) inset;
+}
+
+.rotate-login-card {
+  transform: rotateY(180deg);
+}
+
+.card-side {
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  position: absolute;
+  inset: 0;
+  padding: 3.2rem;
+}
+
+.avatar-preview-img {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  animation: clearblur 1s forwards;
+  filter: blur(100px);
+}
+
+.card-caption {
+  width: 100%;
+}
+
+@media screen and (max-width: 1050px) {
+  .login-column:nth-child(1) {
+    animation: shrinkToLeftAndClear 1.5s forwards;
+    transform-origin: left;
+    position: absolute;
+  }
+
+  .mobile-login-header {
+    transform: translateY(0rem);
+  }
+}

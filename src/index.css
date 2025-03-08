@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+html {
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --beige500: rgb(152, 144, 139);
+  --beige100: rgb(248, 244, 240);
+  --grey900: rgb(32, 31, 36);
+  --grey500: rgb(105, 104, 104);
+  --grey300: rgb(179, 179, 179);
+  --grey100: rgb(242, 242, 242);
+  --green: rgb(39, 124, 120);
+  --yellow: rgb(242, 205, 172);
+  --cyan: rgb(130, 201, 215);
+  --navy: rgb(99, 96, 112);
+  --red: rgb(201, 71, 54);
+  --purple: rgb(130, 108, 176);
+  --lightpurple: rgb(175, 129, 186);
+  --turquoise: rgb(89, 124, 124);
+  --brown: rgb(147, 103, 79);
+  --magenta: rgb(147, 79, 111);
+  --blue: rgb(63, 130, 176);
+  --navygray: rgb(151, 160, 172);
+  --armygreen: rgb(127, 145, 97);
+  --gold: rgb(202, 179, 97);
+  --orange: rgb(190, 108, 73);
+  --white: rgb(255, 255, 255);
+  --mainFont: "Public Sans", serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  position: relative;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+h5,
+p {
+  font-size: 1.2rem;
+}
+
+label {
+  font-size: 1.6rem;
+  display: block;
+  padding: 0.25rem 0rem;
+}
+
+.no-whitespace {
+  white-space: nowrap;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.semi-bold {
+  font-weight: 500;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.error-text {
+  color: var(--red);
+}
+
+.success-text {
+  color: var(--green);
+}
+
+.dark-text {
+  color: var(--grey900);
+}
+
+.grey-300-text {
+  color: var(--grey300);
+}
+
+.grey-500-text {
+  color: var(--grey500);
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.line-height {
+  line-height: 3rem;
+}
+
+.mid-thin {
+  font-weight: 300;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.ml-1 {
+  margin-left: 1rem;
+}
+
+.mx-1 {
+  margin: 0em 1rem;
+}
+
+.mx-2 {
+  margin: 0 2rem;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.pt-2 {
+  padding-top: 2rem;
+}
+
+.pb-1 {
+  padding-bottom: 1rem;
+}
+
+.pb-2 {
+  padding-bottom: 2rem;
+}
+
+.py-1 {
+  padding: 1.2rem 0;
+}
+
+.py-2 {
+  padding: 2rem 0;
+}
+
+.my-2 {
+  margin: 3.2rem 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.justify-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.flex-end {
+  display: flex;
+  /* align-items: flex-end; */
+  justify-content: flex-end;
+}
+
+.flex-column-start {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.border-gray {
+  border: 2px solid var(--grey300);
+  border: 3px solid red;
+}
+
+.gap-small {
+  gap: 0.5rem;
+}
+
+.gap-1 {
+  gap: 1.5rem;
+}
+
+.gap-2 {
+  gap: 2.5rem;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.bg-dark {
+  background: var(--grey900);
+}
+
+.bg-white {
+  background: var(--white);
+}
+
+.bg-beige-100 {
+  background: var(--beige100);
+}
+
+.bg-white {
+  background: var(--white);
+}
+
+.bg-transparent {
+  background: none;
+}
+
+.bg-green {
+  background: var(--green);
+}
+
+.bg-yellow {
+  background: var(--yellow);
+}
+
+.bg-cyan {
+  background: var(--cyan);
+}
+
+.bg-navy {
+  background: var(--navy);
+}
+
+.bg-red {
+  background: var(--red);
+}
+
+.bg-purple {
+  background: var(--purple);
+}
+
+.bg-lightpurple {
+  background: var(--lightpurple);
+}
+
+.bg-turquoise {
+  background: var(--turquoise);
+}
+
+.bg-brown {
+  background: var(--brown);
+}
+
+.bg-magenta {
+  background: var(--magenta);
+}
+
+.bg-blue {
+  background: var(--blue);
+}
+
+.bg-navygray {
+  background: var(--navygray);
+}
+
+.bg-armygreen {
+  background: var(--armygreen);
+}
+
+.bg-gold {
+  background: var(--gold);
+}
+
+.bg-orange {
+  background: var(--orange);
+}
+
+.rounded-sm {
+  border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 750px) {
+  h1 {
+    font-size: 2rem;
+  }
+}

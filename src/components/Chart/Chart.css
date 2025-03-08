@@ -1,0 +1,45 @@
+.chart {
+  width: 24rem;
+  height: 24rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.5s ease;
+  position: relative;
+}
+
+@property --rotate-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 360deg;
+}
+
+.chart-cover {
+  position: absolute;
+  border-radius: 50%;
+  --rotate-angle: 360deg;
+  background: conic-gradient(
+    white 0deg var(--rotate-angle),
+    transparent var(--rotate-angle)
+  );
+  inset: 0;
+  animation: revealchart 2s forwards;
+}
+
+@keyframes revealchart {
+  from {
+    --rotate-angle: 360deg;
+  }
+  to {
+    --rotate-angle: 0deg;
+  }
+}
+
+.chart-center {
+  width: 72.5%;
+  height: 72.5%;
+  background: white;
+  border-radius: 50%;
+  z-index: 5;
+}

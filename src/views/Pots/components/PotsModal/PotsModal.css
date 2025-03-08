@@ -1,0 +1,7 @@
+.character-count-alert-div {
+  position: absolute;
+  right: 0;
+  bottom: 0.5rem;
+  overflow: hidden;
+  /* border: 2px solid red; */
+}
