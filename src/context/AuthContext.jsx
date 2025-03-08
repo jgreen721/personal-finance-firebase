@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
         await createUserWithEmailAndPassword(auth,userData.email,userData.password);
       if(!userData.avatarUrl){
         console.log("successfully created a sessioned user")
-        let blobFile = await uploadStaticImage("./custom_assets/avatar.jpg");
+        let blobFile = await uploadStaticImage("./custom_assets/generic_avatar.jpg");
         let imgRef = await ref(storage,"avatars/avatar.jpg")
         await uploadBytes(imgRef,blobFile);
         let downloadUrl = await getDownloadURL(imgRef);
