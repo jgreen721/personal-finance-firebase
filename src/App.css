@@ -180,4 +180,8 @@
   .mobile {
     display: flex;
   }
+
+  .modal {
+    padding: 2rem;
+  }
 }

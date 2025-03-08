@@ -18,8 +18,8 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate()
 
   useEffect(() => {
+    if(useDemoData)return;
     onAuthStateChanged(auth,async(user)=>{
-      if(!useDemoData){
         if(!user){
             navigate("/login")
         }else{
@@ -28,11 +28,12 @@ export const AuthProvider = ({ children }) => {
             querySnapshot.forEach((doc) => {
               setUser({id:doc.id,...doc.data()})
             });
-            navigate("/recurring")
-          }
-      }
+            navigate("/")
+        }
     })
   }, []);
+
+
 
 
   useEffect(()=>{
@@ -42,7 +43,7 @@ export const AuthProvider = ({ children }) => {
       let data = await response.json();
       // console.log("Data",data);
       setUser(data.user);
-      navigate('/budgets')
+      navigate('/')
       }
       fetchDummyData();
     }
@@ -95,10 +96,10 @@ export const AuthProvider = ({ children }) => {
     try{
       if(useDemoData){
           setUseDemoData(false);
-          setUser(null)
       }else{
           await signOut(auth);
           }
+          setUser(null);
           navigate('/login')
         }
         catch(e){}

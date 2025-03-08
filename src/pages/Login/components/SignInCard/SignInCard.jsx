@@ -52,26 +52,8 @@ const SignInCard = ({setShowSignIn}) => {
       </div>
       <form ref={signInRef} className="login-form">
         <div className="form-inputs">
-          {/* <div className="form-div">
-            <label htmlFor="loginemail">Email:</label>
-            <input type="text" className="form-control" placeholder="Email..." autoComplete="off" name="email" id="loginemail" />
-            <FormErrorCaption showError={emailError} msg="Need to provide an email"/>
-          </div> */}
-          <FormDiv label="email" fieldName="email" showError={emailError} errorMsg="Inv@lid Email" placeholder="Email..." defaultValue="test@gmail.com"/>
-          <FormDiv label="password" fieldName="password" showError={passwordError} errorMsg="Password must be at least 5 characters" placeholder="Password" isPassword={true} defaultValue="pword123"/>
-
-          {/* <div className="form-div">
-            <label htmlFor="loginpassword">Password:</label>
-            <input type={showPassword ? 'password' : 'text'} className="form-control" placeholder="Password..." autoComplete="off" name="password" id="loginpassword" />
-            <button onClick={(e)=>{
-                  e.preventDefault();
-                  setShowPassword(showPassword=>showPassword = !showPassword)
-                  }} 
-                  className="input-icon-btn input-icon">
-                <img src={showPassword ? iconHidePassword : iconShowPassword} alt="" />
-            </button>
-            <FormErrorCaption showError={passwordError} msg="Invalid password"/>
-          </div> */}
+          <FormDiv label="email" fieldName="email" showError={emailError} errorMsg="Inv@lid Email" placeholder="Email..."/>
+          <FormDiv label="password" fieldName="password" showError={passwordError} errorMsg="Password must be at least 5 characters" placeholder="Password" isPassword={true}/>
         </div>
         <div className="form-div">
           <button onClick={handleSignin} className="btn btn-full btn-dark">Sign In</button>

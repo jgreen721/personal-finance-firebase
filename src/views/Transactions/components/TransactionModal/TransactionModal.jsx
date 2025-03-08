@@ -71,6 +71,7 @@ const TransactionModal = () => {
         </div>
         <div className="form-row">
           <FileUpload setSelectedFile={setSelectedFile}/>
+          <div className="checkboxes-div">
           <div className="form-div flex-end gap-1">
             <label htmlFor="payment">Payment:</label>
             <div onClick={()=>setIsPayment(isPayment=>isPayment = !isPayment)} className={`checkbox`}>
@@ -82,6 +83,7 @@ const TransactionModal = () => {
             <div onClick={()=>setRecurring(recurring=>recurring = !recurring)} className={`checkbox`}>
               <div className={`circle-check-blob ${recurring ? 'scale-1' : 'scale-0'}`}></div>
             </div>
+          </div>
           </div>
        </div> 
        <div className="form-div pt-2">
