@@ -90,7 +90,7 @@ const SignUpCard = ({setShowSignIn}) => {
       <form ref={formRef} className="signup-form">
         <FormDiv label="email" fieldName="email" showError={emailError} errorMsg="Inv@lid Email" placeholder="Email..." />
         <FormDiv label="password" fieldName="password" showError={passwordError} errorMsg="Password must be at least 5 characters" placeholder="Password" isPassword={true} />
-        <FormDiv label="password" fieldName="confirm" showError={confirmError} errorMsg="Passwords don't match" placeholder="Confirm Password" isPassword={true}/>
+        <FormDiv label="confirm" fieldName="confirm" showError={confirmError} errorMsg="Passwords don't match" placeholder="Confirm" isPassword={true}/>
         <div className="form-row">
             <FormDiv label="balance" fieldName="balance" showError={balanceError} errorMsg="Invalid balance - (Minimum $500)" placeholder="Balance" defaultValue="" isMoney={true}/>
             <FileUpload setSelectedFile={setSelectedFile}/>

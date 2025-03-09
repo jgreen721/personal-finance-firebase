@@ -22,16 +22,19 @@ export const AuthProvider = ({ children }) => {
 
 
   useEffect(() => {
+    navigate("/login")
     if(useDemoData)return;
     onAuthStateChanged(auth,async(user)=>{
-        if(!user){
-            navigate("/login")
-        }else{
+        // if(!user){
+        //     navigate("/login")
+        // }else{
+          if(user){
             let q = await query(collection(db,"users"),where("email","==",user.email));
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
               setUser({id:doc.id,...doc.data()})
             });
+            navigate('/')
         }
     })
   }, []);

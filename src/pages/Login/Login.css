@@ -1,7 +1,7 @@
 .login-container {
   position: relative;
   display: flex;
-  height: 100vh;
+  /* height: 100vh; */
   min-height: 75rem;
   /* border: 3px solid red; */
 }
@@ -30,6 +30,7 @@
   overflow: hidden;
   border-radius: 1rem;
   transition: 0.5s ease;
+  margin-bottom: 1rem;
   /* border: 4px solid yellow; */
 }
 
@@ -48,6 +49,7 @@
   width: 100%;
   text-align: center;
   padding: 1rem;
+  /* background: var(--beige100); */
 }
 
 .footer-link {
