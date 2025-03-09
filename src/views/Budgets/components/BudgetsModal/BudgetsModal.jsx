@@ -5,7 +5,7 @@ import {categories,themes} from "../../../../const"
 import "./BudgetsModal.css"
 
 const BudgetsModal = ({budgets,btnText,caption,title,activeBudget=null}) => {
-  const {alertStatus,add_budget,edit_item} = useAppContext();
+  const {alertStatus,add_budget,edit_item,isDemo,alert_user} = useAppContext();
   const [category,setCategory] = useState("");
   const [categoryError,setCategoryError] = useState(false);
   const [theme,setTheme] = useState("")
@@ -107,7 +107,12 @@ const BudgetsModal = ({budgets,btnText,caption,title,activeBudget=null}) => {
       setThemeError(false);
     },2000);
   }else{
+    if(isDemo){
+      alert_user(403,"Demo Mode: Must be registered user!")
+
+    }else{
       add_budget(budgetObj);
+    }
       setCategory("");
       setTheme("");
       formData.set("max","");
@@ -131,7 +136,7 @@ const BudgetsModal = ({budgets,btnText,caption,title,activeBudget=null}) => {
   return (
     <div className="bg-white modal">
       <ModalHeader title={title}/>
-  {/* <h3 className={`${alertStatus.status == null ? 'scale-0' : 'scale-1'} ${alertStatus.status != 200 ? 'error-text' : 'success-text'} mt-2`}>{alertStatus.msg}</h3> */}
+      <h3 className={`capitalize ${alertStatus.status == null ? 'scale-0' : 'scale-1'} ${alertStatus.status != 200 ? 'error-text' : 'success-text'} mt-2 modal-status-msg`}>{alertStatus.msg}</h3>
       <h4 className="my-2 mid-thin">{caption}</h4>
       <form className="form" ref={formRef}>
        

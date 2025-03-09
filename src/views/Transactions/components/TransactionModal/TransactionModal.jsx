@@ -12,7 +12,7 @@ const TransactionModal = () => {
 
       const [category,setCategory] = useState(null)
       const [isPayment,setIsPayment] = useState(false);
-      const {add_transaction,alertStatus} = useAppContext();
+      const {add_transaction,alertStatus,isDemo,alert_user} = useAppContext();
       const formRef = useRef();
     // console.log("ShowModal",showModal)
   
@@ -48,7 +48,11 @@ const TransactionModal = () => {
         if(isPayment){
         transactionData.amount *= -1;
       }
+      if(isDemo){
+        alert_user(403,"Demo Mode: Must be registered user!")
+      }else{
       add_transaction(transactionData)
+      }
       formRef.current['name'].value = "";
       formRef.current['amount'].value = "";
 
@@ -60,7 +64,7 @@ const TransactionModal = () => {
   return (
     <div className="bg-white modal">
       <ModalHeader title="Add a new Transaction"/>
-      <h3 className={`capitalize ${alertStatus.status == null ? 'scale-0' : 'scale-1'} ${alertStatus.status != 200 ? 'error-text' : 'success-text'} mt-2`}>{alertStatus.msg}</h3>
+      <h3 className={`capitalize ${alertStatus.status == null ? 'scale-0' : 'scale-1'} ${alertStatus.status != 200 ? 'error-text' : 'success-text'} mt-2 modal-status-msg`}>{alertStatus.msg}</h3>
       <form ref={formRef} className="form">
         <div className="pb-2 high-z">
           <DropDown items={categories} setSelectedItem={setCategory} label="category"/>

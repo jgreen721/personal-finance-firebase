@@ -1,6 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import { ThemeDot,CardHeader } from '../../../../components'
-import { iconEllipsis } from '../../../../const'
+import { CardHeader } from '../../../../components'
 import { useAppContext } from '../../../../context/AppContext'
 import ProgressSection from '../ProgressSection/ProgressSection'
 import "./PotCard.css"
@@ -21,7 +20,7 @@ const PotCard = ({pot,handleActionToPot}) => {
 
 
   return (
-    <div className="pot-card parent-content-card">
+    <div className="pot-card parent-content-card bg-white">
       <CardHeader title={pot.name} item={pot} itemType="pot" handleAction={handleActionToPot}/>
       <ProgressSection pot={pot} caption="Total Saved"/>
         <div className="justify-between gap-1">

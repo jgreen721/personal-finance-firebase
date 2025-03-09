@@ -42,8 +42,8 @@ const ProgressSection = ({pot,caption,newAmt=0}) => {
     </div>
     <div className="progress-bar">
       <div style={{"--width":`${calcAndRenderPercent(pot.total,pot.target)}%`}} className={`progress ${pot.theme} `}></div>
-      <div className="added-progress" style={{left:`${calcAndRenderPercent(pot.total,pot.target)+.1}%`,width:`${calcAndRenderPercent(newAmount,pot.target)}%`}}></div>
-      {newAmount < 0 && <div className="minus-progress" style={{width:`${calcAndRenderPercent(pot.total,pot.target)+.1}%`,transform:`scaleX(${calcAndRenderPercent(Math.abs(newAmount),pot.total)}%)`}}></div>}
+      <div className={`added-progress ${pot.theme == "bg-green" ? "bg-cyan" : "bg-green"}`} style={{left:`${calcAndRenderPercent(pot.total,pot.target)+.1}%`,width:`${calcAndRenderPercent(newAmount,pot.target)}%`}}></div>
+      {newAmount < 0 && <div className={`minus-progress ${pot.theme == "bg-red" ? "bg-purple" : "bg-red"}`} style={{width:`${calcAndRenderPercent(pot.total,pot.target)+.1}%`,transform:`scaleX(${calcAndRenderPercent(Math.abs(newAmount),pot.total)}%)`}}></div>}
     </div>
     <div className="justify-between">
       <p>{calcAndRenderPercent(parseFloat(pot.total) + newAmount,pot.target)}%</p>

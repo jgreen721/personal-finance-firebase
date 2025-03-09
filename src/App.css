@@ -2,17 +2,12 @@
   /* max-width: 144rem; */
   margin: 0 auto;
   min-height: 100vh;
-  /* height: 100vh; */
   position: relative;
   /* border: 3px solid black; */
   font-family: var(--mainFont);
   background: var(--beige100);
   --darkBg: var(--grey900);
 }
-
-/* .app {
-  --darkBg: var(--grey900);
-} */
 
 .mobile {
   display: none;
@@ -24,6 +19,12 @@
   border-radius: 0.5rem;
   box-shadow: 2px 3px 7px rgba(10, 15, 15, 0.35),
     2px 3px 20px rgba(15, 15, 10, 0.55);
+}
+
+.modal-status-msg {
+  height: 35px;
+  transition: 0.5s ease;
+  transform-origin: left;
 }
 
 .parent-content-card {

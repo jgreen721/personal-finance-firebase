@@ -38,6 +38,7 @@ export const AppProvider = ({ children }) => {
          fetch("data.json")
          .then(res=>res.json())
          .then(localData=>{
+           console.log("hydrating local-data!!")
             setTransactions(localData.transactions.map((item,idx)=>({id:idx+1,...item})));
             setPots(localData.pots.map((item,idx)=>({id:idx+1,...item,theme:colors[item.theme]})));
             setBudgets(localData.budgets.map((item,idx)=>({id:idx+1,max:item.maximum,...item,theme:colors[item.theme]})));
@@ -146,10 +147,6 @@ export const AppProvider = ({ children }) => {
       updatedPot.achieved = parseFloat(pot.achieved) + deltaAmt;
       updatedPot.achieved = JSON.stringify(updatedPot.achieved)
       updatedPot.updated_at = createZuluTimestamp();
-      // let updatedDoc = await updateDoc(itemRef, {
-      //   achieved: JSON.stringify(newAchieved),
-      //   updated_at: createZuluTimestamp(),
-      // }
       await editItemFromFirestore(collectionName,pot.id,updatedPot)
       setShowModal(false);
 
@@ -199,6 +196,13 @@ export const AppProvider = ({ children }) => {
     }
   }
 
+  const alert_user=(status,msg)=>{
+    setAlertStatus({status,msg});
+    setTimeout(()=>{
+      setAlertStatus(alertStatus =>alertStatus = {...alertStatus,status:null})
+     },2500)
+  }
+
 
   const values = {
       showNav,
@@ -217,6 +221,7 @@ export const AppProvider = ({ children }) => {
       pots,
       add_budget,
       budgets,
+      alert_user,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

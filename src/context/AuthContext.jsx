@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext, useContext } from "react";
 import {onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword,signOut} from "firebase/auth"
-import {addDoc,collection,where,doc,query,getDocs} from "firebase/firestore"
+import {addDoc,collection,where,query,getDocs} from "firebase/firestore"
 import { uploadStaticImage } from "../utils/helpers";
 import {auth,storage,db} from "../firebase"
 import { useNavigate } from "react-router";
@@ -22,20 +22,17 @@ export const AuthProvider = ({ children }) => {
 
 
   useEffect(() => {
-    navigate("/login")
     if(useDemoData)return;
     onAuthStateChanged(auth,async(user)=>{
-        // if(!user){
-        //     navigate("/login")
-        // }else{
-          if(user){
-            let q = await query(collection(db,"users"),where("email","==",user.email));
+        if(!user){
+            navigate("/login")
+        }else{
+            let q = await query(collection(db,"users"),where("email","==",user?.email));
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
               setUser({id:doc.id,...doc.data()})
             });
-            navigate('/')
-        }
+         }
     })
   }, []);
 
@@ -49,11 +46,16 @@ export const AuthProvider = ({ children }) => {
       let data = await response.json();
       // console.log("Data",data);
       setUser(data.user);
-      navigate('/')
       }
       fetchDummyData();
     }
   },[useDemoData])
+
+
+  useEffect(()=>{
+    if(user)navigate("/")
+    else navigate("/login");
+  },[user])
 
 
   const signup = async(userData)=>{

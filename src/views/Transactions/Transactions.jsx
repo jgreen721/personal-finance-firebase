@@ -6,7 +6,7 @@ import { emptyTransactionsImg } from '../../const'
 import "./Transactions.css"
 
 const Transactions = () => {
-  const {transactions} = useAppContext();
+  const {transactions,isDemo} = useAppContext();
   const tableCategories =[
     {id:1,category:"Recipient/Sender"},
     {id:2,category:"Category"},
@@ -81,9 +81,10 @@ const Transactions = () => {
 
 return (
     <div>
-      <ModalOverlay>
-        <TransactionModal/>
+        <ModalOverlay>
+          <TransactionModal/>
       </ModalOverlay>
+  <div className="overflow-container">
       <div className="parent-content-card bg-white">
         <SearchRow setSearchFor={setSearchFor} setCategory={setCategory} setSortBy={setSortBy}/>
         {transactions.length > 0
@@ -102,6 +103,7 @@ return (
         <Empty img={emptyTransactionsImg} category="transaction"/>
 }
       </div>
+    </div>
     </div>
   )
 }

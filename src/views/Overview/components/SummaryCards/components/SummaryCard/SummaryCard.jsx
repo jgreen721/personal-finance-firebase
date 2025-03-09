@@ -8,7 +8,8 @@ const SummaryCard = ({amount,category,isDark})=>{
   
 return (
   <div className={`summary-card card-padding-radius ${isDark ? 'bg-dark text-white' : 'bg-white'}`}>
-      {amount != null && amount != 0
+       {
+       Math.abs(parseFloat(amount)) > 0
       ?
         <div className="summary-card-content">
             <h3 className="mid-thin">{category}</h3>
@@ -19,7 +20,8 @@ return (
           <PiPiggyBank />
           <h2 className="mid-thin">No {category}'s :(</h2>
         </div>
-      }
+      
+          }
 </div>
 )
 }

@@ -8,28 +8,37 @@ const ActionPotModal = ({title,label,pot,btnText}) => {
   const [showCaption,setShowCaption] = useState(false);
   const [captionMsg,setCaptionMsg] = useState("");
   const [amount,setAmount] = useState("")
-  const {editpot_total} = useAppContext()
+  const {editpot_total,alertStatus,isDemo,alert_user} = useAppContext()
   // console.log("Pot",pot)
 
   const handlePotAction=(e)=>{
     e.preventDefault();
     // console.log("handlePotAction fired!",label)
+    if(isDemo){
+      alert_user(403,"Demo Mode: Must be registered user!");
+      return;
+    }
+    let editedAmt;
     if(label == "Add"){
       // console.log("add amount to firebase!",amount);
       let tempAmount = parseFloat(amount);
       let maxAmount = parseFloat(pot.target) - parseFloat(pot.achieved);
       // console.log("MaxAmount",maxAmount);
       tempAmount = tempAmount < maxAmount ? tempAmount : maxAmount;
+      editedAmt = tempAmount;
       // console.log("Amount",tempAmount);
-      editpot_total(pot,tempAmount);
+      // editpot_total(pot,tempAmount);
     }else{
       console.log("subtract from achieved",amount);
       let tempAmount = parseFloat(amount);
       let maxAmount = tempAmount < parseFloat(pot.achieved) ? tempAmount : parseFloat(pot.achieved)
       maxAmount *= -1;
-      editpot_total(pot,maxAmount);
+      // editpot_total(pot,maxAmount);
+      editedAmt = maxAmt;
 
     }
+    editpot_total(pot,maxAmount);
+
  
   }
 
@@ -78,8 +87,10 @@ if(newAmt + floatAchieved > pot.target){
 }
 }
   return (
-    <div className="modal">
+    <div className="modal bg-white">
         <ModalHeader title={title}/>
+        <h3 className={`capitalize ${alertStatus.status == null ? 'scale-0' : 'scale-1'} ${alertStatus.status != 200 ? 'error-text' : 'success-text'} mt-2 modal-status-msg`}>{alertStatus.msg}</h3>
+
         <p className="my-2">Add towards your goal of saving for a <span className="bold">{pot.name}</span>. </p>
         <ProgressSection pot={pot} 
                         caption="New amount" 

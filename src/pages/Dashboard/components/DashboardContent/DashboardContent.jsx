@@ -5,11 +5,11 @@ import {  useAppContext } from '../../../../context/AppContext'
 import "./DashboardContent.css"
 
 const DashboardContent = () => {
-    // const {showNav} = useAppContext();
+    const {showModal} = useAppContext();
   return (
     <div className="dashboard-content-row">
       <Navbar/>
-      <div className={`dashboard-content-column`}>
+      <div className={`dashboard-content-column ${showModal ? '' : 'overflow'}`}>
         <PageHeader/>
             <Outlet/>
        </div>

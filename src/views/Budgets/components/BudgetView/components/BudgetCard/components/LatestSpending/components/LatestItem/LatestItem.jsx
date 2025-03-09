@@ -8,7 +8,7 @@ import "./LatestItem.css"
 const LatestItem = ({item}) => {
 
   const dateTimeFormat = (date)=>{
-    console.log("Date",new Date(date))
+    // console.log("Date",new Date(date))
   const formattedDate = new Intl.DateTimeFormat("en-GB", {
     day: "2-digit",
     month: "short",

@@ -11,7 +11,7 @@ const PotsModal = ({modalTitle,btnText,activePot=null}) => {
   // const [starting,setStarting] = useState("")
   const [theme,setTheme] = useState("")
   const [targetError,setTargetError] = useState(false);
-  const {add_pot,edit_item} = useAppContext();
+  const {add_pot,edit_item,alert_user,isDemo,alertStatus} = useAppContext();
   const formRef = useRef();
 
   useEffect(()=>{
@@ -71,7 +71,13 @@ const PotsModal = ({modalTitle,btnText,activePot=null}) => {
           },2000);
 
       }else{
+        if(isDemo){
+          alert_user(403,"Demo Mode: Must be registered user!")
+
+        }
+        else{
           add_pot(potData)
+        }
           formData.set("title","");
           formData.set("target","");
           formData.set("starting","");
@@ -116,6 +122,8 @@ const PotsModal = ({modalTitle,btnText,activePot=null}) => {
   return (
     <div className="modal bg-white">
         <ModalHeader title={modalTitle}/>
+        <h3 className={`capitalize ${alertStatus.status == null ? 'scale-0' : 'scale-1'} ${alertStatus.status != 200 ? 'error-text' : 'success-text'} mt-2 modal-status-msg`}>{alertStatus.msg}</h3>
+
         <form ref={formRef} className="form">
           <div className="form-div">
             <label htmlFor="title">Pot name:</label>

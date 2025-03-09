@@ -7,8 +7,9 @@ const ModalOverlay = ({children}) => {
   return (
     <div className={`modal-overlay ${showModal ? 'show-modal-overlay' : 'hide-modal-overlay'}`}>
               {React.Children.map(children, (child) =>
-        React.cloneElement(child, { setShowModal,showModal })
-      )}
+              React.cloneElement(child, { setShowModal,showModal })
+            
+              )}
 
     </div>
   )
