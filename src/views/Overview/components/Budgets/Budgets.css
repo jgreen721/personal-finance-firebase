@@ -1,0 +1,7 @@
+@media screen and (max-width: 750px) {
+  .overview-budgets-list {
+    display: grid;
+    margin-top: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

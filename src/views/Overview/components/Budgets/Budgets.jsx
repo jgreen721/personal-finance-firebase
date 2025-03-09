@@ -10,14 +10,16 @@ const Budgets = () => {
   return (
     <div className="parent-content-card bg-white">
 <OverviewCardHeader title="budgets" btnText="see details" link="/budgets"/>
-<div className="flex">
+<div className="collapse-flex-row">
   <div className="flex-2">
     <Chart budgets={budgets}/>
   </div>
   <div className="flex-1">
+    <div className="overview-budgets-list">
     {budgets.map(budget=>(
       <OverviewBorderListItem key={budget.id} theme={budget.theme} name={budget.category} amount={budget.max}/>
     ))}
+    </div>
   </div>
 </div>
     </div>

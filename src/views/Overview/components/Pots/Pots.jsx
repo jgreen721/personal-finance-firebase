@@ -12,7 +12,7 @@ const Pots = () => {
   pots.length ? 
     <div className="bg-white parent-content-card">
      <OverviewCardHeader title="pots" btnText="see details" link="/pots"/>
-      <div className="flex pot-card-row gap-2">
+      <div className="collapse-flex-row pot-card-row gap-2">
         <div className="flex-1 flex-start gap-2 pot-card-column bg-beige-100">
           <div className="pot-icon-div p-1">
             <img src={iconPot} alt="pot" />

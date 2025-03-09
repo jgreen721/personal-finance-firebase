@@ -47,7 +47,7 @@ const DropDown = ({items,label,setSelectedItem,isFlex=false,mobileIcon = null,is
 return (
     <div className={`dropdown-container ${zIndex == 1 ? 'default-z' : 'high-z'}`}>
         <div className={`${mobileIcon != null && 'desktop-tablet'} ${isFlex ? 'flex flex-center gap-1' : ' '}`}>
-            <label htmlFor="dropdown-select" className="capitalize no-whitespace">{label}</label>
+            <label htmlFor="dropdown-select" className="capitalize no-whitespace desktop-tablet">{label}</label>
             <div className="fake-input-display justify-between gap-1">
                 <div className="flex gap-1">
                     <h4 className={`${selectedValue ? 'dark-text' : 'muted-placeholder'} capitalize no-whitespace`}>{selectedValue ? selectedValue : label}</h4>

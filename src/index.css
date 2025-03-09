@@ -182,6 +182,10 @@ label {
   display: flex;
 }
 
+.collapse-flex-row {
+  display: flex;
+}
+
 .flex-1 {
   flex: 1;
 }
@@ -349,5 +353,9 @@ label {
 
   h3 {
     font-size: 1.3rem;
+  }
+
+  .collapse-flex-row {
+    flex-direction: column;
   }
 }
