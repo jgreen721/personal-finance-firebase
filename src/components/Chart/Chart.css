@@ -9,6 +9,17 @@
   position: relative;
 }
 
+.chart::after {
+  content: "";
+  position: absolute;
+  height: 77%;
+  width: 77%;
+  background: white;
+  opacity: 50%;
+  backdrop-filter: blur(25px);
+  border-radius: 50%;
+}
+
 @property --rotate-angle {
   syntax: "<angle>";
   inherits: false;
