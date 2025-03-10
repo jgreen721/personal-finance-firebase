@@ -20,6 +20,7 @@ const Transactions = () => {
   const [category,setCategory] = useState("All");
   const [sortBy,setSortBy] = useState("");
   const [searchFor,setSearchFor] = useState("")
+  const [pageTotal,setPageTotal] = useState(0)
 
 
    useEffect(()=>{
@@ -56,17 +57,35 @@ const Transactions = () => {
     let firstIdx = lastIdx - PER_PAGE;
     let temp_batch = viewableTransactions.slice(firstIdx,lastIdx);
     setBatch(temp_batch);
-    let temp_pages = []
+    let total_pages = 0
+    let batched_pages = []
     for(let i=1;i<(viewableTransactions.length/PER_PAGE) + 1;i++){
-        temp_pages.push(i)
+        total_pages++
+        batched_pages.push(i);
     }
-    // console.log(temp_pages)
+    total_pages--;
+    if(total_pages > 5){
+      // console.log("batch da pages!")
+      // let batched_pages = []
+      let lastPage = total_pages
 
-    setPages(temp_pages);
+      if(currPage  < 4){
+        batched_pages = [1,2,3,"...",lastPage]
+      }
+      else if(lastPage - currPage < 2){
+        batched_pages = [1,"...",lastPage-2,lastPage-1,lastPage]
+      }
+      else{
+        batched_pages = [1,"...",parseInt(currPage)-1,currPage,parseInt(currPage)+1,"...",lastPage];
+      }
+    }
+
+    setPages(batched_pages);
+    setPageTotal(total_pages)
   }
 
   useEffect(()=>{
-      console.log("Searching for...",searchFor)
+      // console.log("Searching for...",searchFor)
       let temp_transactions = [...transactions];
       temp_transactions = temp_transactions.filter(item => 
         item.name.toLowerCase().includes(searchFor.toLowerCase())
@@ -96,7 +115,7 @@ return (
             <div className="mobile">
               <MobileList data={batch}/>
             </div>
-            <PaginationRow pages={pages} currPage={currPage} setCurrPage={setCurrPage}/>
+            <PaginationRow pages={pages} currPage={currPage} pageTotal={pageTotal} setCurrPage={setCurrPage}/>
 
         </div>
         :

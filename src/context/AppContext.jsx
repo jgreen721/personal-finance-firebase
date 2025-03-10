@@ -38,7 +38,7 @@ export const AppProvider = ({ children }) => {
          fetch("data.json")
          .then(res=>res.json())
          .then(localData=>{
-           console.log("hydrating local-data!!")
+          //  console.log("hydrating local-data!!")
             setTransactions(localData.transactions.map((item,idx)=>({id:idx+1,...item})));
             setPots(localData.pots.map((item,idx)=>({id:idx+1,...item,theme:colors[item.theme]})));
             setBudgets(localData.budgets.map((item,idx)=>({id:idx+1,max:item.maximum,...item,theme:colors[item.theme]})));
@@ -74,8 +74,16 @@ export const AppProvider = ({ children }) => {
   useEffect(()=>{
     if(transactions.length){
       setRecurring((recurring)=>recurring = transactions.filter(t=>t.recurring));
+      // setTransactions([...transactions,...transactions]);
     }
   },[transactions]);
+
+  useEffect(()=>{
+    if(transactions.length){
+      setTransactions([...transactions,...transactions])
+      // console.log('doubling transactions!!')
+    }
+  },[pots]);
 
   const add_transaction=async(transactionData)=>{
     if(isDemo){

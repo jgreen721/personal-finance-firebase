@@ -20,7 +20,6 @@ const Recurring = () => {
     }
     let {tempPaidTransactions,tempDueSoonTransactions,tempUpcomingTransactions} = getUpcomingBills(recurring,currDay,currMonth);
 
-    console.log(tempPaidTransactions,tempDueSoonTransactions,tempUpcomingTransactions);
     setRecurringDueSoon([
       {id:1,name:"paid bills",total:tempPaidTransactions.reduce((a,b)=>a+parseFloat(b.amount),0),theme:"--green"},
       {id:2,name:"total upcoming",total:tempUpcomingTransactions.reduce((a,b)=>a+parseFloat(b.amount),0),theme:"--gold"},
