@@ -30,7 +30,7 @@ const Chart = ({budgets}) => {
     useEffect(()=>{
       // console.log("piece it together guerro--")
       let graphData=[]
-if(spentTotal != 0){
+if(budgetTotal != 0){
   // let chartData = []
   let bgColor = `conic-gradient(`
   let degreeTracker=0;
@@ -39,9 +39,9 @@ if(spentTotal != 0){
     graphObj.category = b.category;
     graphObj.theme = b.theme;
     let spentTotalOnCategory = getMonthlyTotals(transactions.filter(t=>t.category == b.category),isDemo);
-    console.log(`Category-${b.category}/ SpentTotal-${spentTotalOnCategory}`)
+    // console.log(`Category-${b.category}/ SpentTotal-${spentTotalOnCategory}`)
     let divider = spentTotalOnCategory < b.max ? b.max : spentTotalOnCategory
-    let percent = parseFloat((divider/(budgetTotal).toFixed(2)));
+    let percent = parseFloat((b.max/(budgetTotal).toFixed(2)));
     let endDegree = Math.floor(360 * percent);
     graphObj.initial = degreeTracker
     graphObj.degrees = endDegree;
@@ -53,7 +53,7 @@ if(spentTotal != 0){
 
   })
 
-  console.log(graphData);
+  // console.log(graphData);
 
   bgColor = bgColor.split("");
   bgColor.pop();
@@ -66,7 +66,7 @@ if(spentTotal != 0){
 else{
   setConicBg(EMPTY_BG)
 }
-    },[spentTotal])
+    },[spentTotal,budgetTotal])
 
    
   return (

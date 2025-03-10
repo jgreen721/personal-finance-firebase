@@ -23,17 +23,14 @@ const ActionPotModal = ({title,label,pot,btnText}) => {
       // console.log("add amount to firebase!",amount);
       let tempAmount = parseFloat(amount);
       let maxAmount = parseFloat(pot.target) - parseFloat(pot.achieved);
-      // console.log("MaxAmount",maxAmount);
+      
       tempAmount = tempAmount < maxAmount ? tempAmount : maxAmount;
       editedAmt = tempAmount;
-      // console.log("Amount",tempAmount);
-      // editpot_total(pot,tempAmount);
     }else{
       console.log("subtract from achieved",amount);
       let tempAmount = parseFloat(amount);
       let maxAmount = tempAmount < parseFloat(pot.achieved) ? tempAmount : parseFloat(pot.achieved)
       maxAmount *= -1;
-      // editpot_total(pot,maxAmount);
       editedAmt = maxAmt;
 
     }

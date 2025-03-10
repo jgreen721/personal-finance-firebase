@@ -6,7 +6,7 @@ import CountUp from "react-countup"
 import "./Recurring.css"
 
 const Recurring = () => {
-  const {transactions,isDemo,recurring} = useAppContext();
+  const {isDemo,recurring} = useAppContext();
   const [recurringDueSoon,setRecurringDueSoon] = useState([])
 
   useEffect(()=>{
@@ -19,12 +19,14 @@ const Recurring = () => {
         currMonth = 8
     }
     let {tempPaidTransactions,tempDueSoonTransactions,tempUpcomingTransactions} = getUpcomingBills(recurring,currDay,currMonth);
+
+    console.log(tempPaidTransactions,tempDueSoonTransactions,tempUpcomingTransactions);
     setRecurringDueSoon([
-      {id:1,name:"paid bills",total:tempPaidTransactions.reduce((a,b)=>a+b.amount,0),theme:"--green"},
-      {id:2,name:"total upcoming",total:tempUpcomingTransactions.reduce((a,b)=>a+b.amount,0),theme:"--gold"},
-      {id:3,name:"due soon",total:tempDueSoonTransactions.reduce((a,b)=>a+b.amount,0),theme:"--cyan"},
+      {id:1,name:"paid bills",total:tempPaidTransactions.reduce((a,b)=>a+parseFloat(b.amount),0),theme:"--green"},
+      {id:2,name:"total upcoming",total:tempUpcomingTransactions.reduce((a,b)=>a+parseFloat(b.amount),0),theme:"--gold"},
+      {id:3,name:"due soon",total:tempDueSoonTransactions.reduce((a,b)=>a+parseFloat(b.amount),0),theme:"--cyan"},
     ])
-  },[transactions])
+  },[recurring])
 
 
   return (

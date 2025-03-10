@@ -45,19 +45,18 @@ const TransactionModal = () => {
           setAmountError(false);
         },2000)
       }else{
-        if(isPayment){
+        if(!isPayment){
         transactionData.amount *= -1;
       }
       if(isDemo){
         alert_user(403,"Demo Mode: Must be registered user!")
       }else{
       add_transaction(transactionData)
-      }
       formRef.current['name'].value = "";
       formRef.current['amount'].value = "";
-
-
       console.log("Newly Added TransactionObject",transactionData);
+
+      }
     }
     }
     

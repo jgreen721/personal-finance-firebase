@@ -11,7 +11,7 @@ const PotsModal = ({modalTitle,btnText,activePot=null}) => {
   // const [starting,setStarting] = useState("")
   const [theme,setTheme] = useState("")
   const [targetError,setTargetError] = useState(false);
-  const {add_pot,edit_item,alert_user,isDemo,alertStatus} = useAppContext();
+  const {add_pot,edit_item,alert_user,isDemo,alertStatus,pots} = useAppContext();
   const formRef = useRef();
 
   useEffect(()=>{
@@ -156,8 +156,10 @@ const PotsModal = ({modalTitle,btnText,activePot=null}) => {
               setSelectedItem={setTheme} 
               isTheme={true} 
               activeValue={theme}
+              usedItems={pots.map(b=>b.theme)}
+              usedField="className"
               /> 
-          <div className="form-div">
+          <div className="form-div pt-2">
             <button onClick={(e)=>handleFormSubmit(e)} className="btn btn-dark btn-full">{btnText} Pot</button>
           </div>
         </form>

@@ -12,7 +12,7 @@ return (
        Math.abs(parseFloat(amount)) > 0
       ?
         <div className="summary-card-content">
-            <h3 className="mid-thin">{category}</h3>
+            <h3 className="mid-thin pb-2">{category}</h3>
             <h1>{amount < 0 && "-"}$<CountUp end={Math.abs(amount)} decimals={2} start={0} separator=","/></h1>
         </div>
       :

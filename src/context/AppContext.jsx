@@ -1,11 +1,11 @@
 import { useState, useEffect, createContext, useContext } from "react";
-import {ref,uploadBytes,getDownloadURL,listAll} from "firebase/storage"
+import {ref,uploadBytes,getDownloadURL} from "firebase/storage"
 // import {collection,addDoc,onSnapshot,where} from "firebase/firestore"
-// import {storage} from "../firebase"
+import {storage} from "../firebase"
 import { addItemToFirestore,fetchItemsFromFirestore, editItemFromFirestore,deleteItemFromFirestore } from "../utils/firestore";
 import {useAuthContext} from "./AuthContext"
 import { createZuluTimestamp,getStaticImgPath } from "../utils/helpers";
-import { colors } from "../const";
+import { colors,default_transactions } from "../const";
 
 
 const AppContext = createContext();
@@ -13,7 +13,7 @@ const AppContext = createContext();
 export const useAppContext = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
-  const [transactions,setTransactions] = useState([]);
+  const [transactions,setTransactions] = useState(default_transactions);
   const [pots,setPots] = useState([])
   const [budgets,setBudgets] = useState([]);
   const [recurring,setRecurring] = useState([]);
@@ -31,7 +31,7 @@ export const AppProvider = ({ children }) => {
     let unsubscribeTransactions;
     let unsubscribePots;
     let unsubscribeBudgets
-    // console.log("fetchingFirebasePromise firing!!!")
+   
  
       if(user?.username == DEMO_USER){
         setIsDemo(true);
@@ -50,7 +50,7 @@ export const AppProvider = ({ children }) => {
             
         })
       } 
-      
+      else
       {
         unsubscribeTransactions = fetchItemsFromFirestore("transactions",user?.email,setTransactions);
         unsubscribePots = fetchItemsFromFirestore("pots",user?.email,setPots);
@@ -63,13 +63,16 @@ export const AppProvider = ({ children }) => {
   return ()=>{
       if(unsubscribePots)unsubscribePots();
       if(unsubscribeTransactions)unsubscribeTransactions();
+      // setTransactions([]);
+      setBudgets([]);
+      setPots([]);
+      setRecurring([]);
   }
   },[user]);
 
 
   useEffect(()=>{
     if(transactions.length){
-      console.log("filter and sort budgets/transactions--")
       setRecurring((recurring)=>recurring = transactions.filter(t=>t.recurring));
     }
   },[transactions]);

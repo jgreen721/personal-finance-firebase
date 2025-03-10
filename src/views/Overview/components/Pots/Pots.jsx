@@ -19,7 +19,7 @@ const Pots = () => {
           </div>
           <div>
             <h4>Total Saved:</h4>
-            <h1>${pots.reduce((a,b)=>a+b.total,0)}</h1>
+            <h1>${pots.reduce((a,b)=>a+parseFloat(b.total),0)}</h1>
           </div>
           </div>
           <div className="flex-1">

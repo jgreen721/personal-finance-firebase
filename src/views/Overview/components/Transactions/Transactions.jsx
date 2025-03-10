@@ -5,6 +5,8 @@ import { useAppContext } from '../../../../context/AppContext'
 
 const Transactions = () => {
   const {transactions} = useAppContext()
+
+  // console.log(transactions);
   return (
     <div className="parent-content-card bg-white">
      <OverviewCardHeader title="transactions" btnText="view all" link="/transactions"/>

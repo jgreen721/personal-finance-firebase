@@ -194,3 +194,30 @@ export const monthAbbreviationMap = {
   November: "Nov",
   December: "Dec",
 };
+
+export const default_transactions = [
+  {
+    avatar: "./assets/images/avatars/emma-richardson.jpg",
+    name: "Emma Richardson",
+    category: "General",
+    date: "2024-08-19T14:23:11Z",
+    amount: 75.5,
+    recurring: false,
+  },
+  {
+    avatar: "./assets/images/avatars/savory-bites-bistro.jpg",
+    name: "Savory Bites Bistro",
+    category: "Dining Out",
+    date: "2024-08-19T20:23:11Z",
+    amount: -55.5,
+    recurring: false,
+  },
+  {
+    avatar: "./assets/images/avatars/daniel-carter.jpg",
+    name: "Daniel Carter",
+    category: "General",
+    date: "2024-08-18T09:45:32Z",
+    amount: -42.3,
+    recurring: false,
+  },
+];
