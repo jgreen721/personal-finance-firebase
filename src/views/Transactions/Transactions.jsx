@@ -21,9 +21,14 @@ const Transactions = () => {
   const [sortBy,setSortBy] = useState("");
   const [searchFor,setSearchFor] = useState("")
   const [pageTotal,setPageTotal] = useState(0)
+  const [pageOffset,setPageOffset] = useState(1)
 
 
    useEffect(()=>{
+    if(innerWidth < 650){
+      // adjust page offset
+      setPageOffset(0);
+    }
    if(transactions.length){
         let temp_transactions = [...transactions]
         if(category != "All") temp_transactions = temp_transactions.filter(t=>t.category == category);
@@ -76,7 +81,8 @@ const Transactions = () => {
         batched_pages = [1,"...",lastPage-2,lastPage-1,lastPage]
       }
       else{
-        batched_pages = [1,"...",parseInt(currPage)-1,currPage,parseInt(currPage)+1,"...",lastPage];
+        if(pageOffset == 1)batched_pages = [1,"...",parseInt(currPage)-1,currPage,parseInt(currPage)+1,"...",lastPage];
+        else batched_pages = [1,"...",currPage,"...",lastPage];
       }
     }
 
@@ -115,7 +121,7 @@ return (
             <div className="mobile">
               <MobileList data={batch}/>
             </div>
-            <PaginationRow pages={pages} currPage={currPage} pageTotal={pageTotal} setCurrPage={setCurrPage}/>
+            <PaginationRow pages={pages} currPage={currPage} pageTotal={pageTotal} setCurrPage={setCurrPage} pageOffset={pageOffset}/>
 
         </div>
         :

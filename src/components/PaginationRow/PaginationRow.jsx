@@ -3,7 +3,7 @@ import { iconCaretLeft, iconCaretRight } from '../../const'
 
 import "./PaginationRow.css"
 
-const PaginationRow = ({currPage,setCurrPage,pages,pageTotal}) => {
+const PaginationRow = ({currPage,setCurrPage,pages,pageTotal,pageOffset}) => {
 
 
   const handleChangePage=(page,idx)=>{
@@ -20,9 +20,9 @@ const PaginationRow = ({currPage,setCurrPage,pages,pageTotal}) => {
       console.log("now what asshole!")
       let currIdx = pages.indexOf(currPage);
       if(currIdx > idx){
-        setCurrPage(currPage-2)
+        setCurrPage(currPage-(pageOffset+1))
       }else{
-        setCurrPage(currPage+2)
+        setCurrPage(currPage+(pageOffset+1))
       }
     }
     }

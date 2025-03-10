@@ -44,3 +44,12 @@
 .absolute-right-btn {
   right: 0;
 }
+
+@media screen and (max-width: 650px) {
+  .absolute-left-btn {
+    left: -0.5rem;
+  }
+  .absolute-right-btn {
+    right: -0.5rem;
+  }
+}
