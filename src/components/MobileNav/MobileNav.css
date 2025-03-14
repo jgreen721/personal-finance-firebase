@@ -67,7 +67,7 @@
 
 @media screen and (max-width: 650px) {
   .mobile-nav {
-    padding-bottom: 5rem;
+    padding-bottom: 2rem;
   }
   .mobile-nav-links {
     padding: 0rem 1.3rem;
